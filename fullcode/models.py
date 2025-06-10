@@ -8,7 +8,7 @@ class ProjectContact(models.Model):
 
     class Meta:
         verbose_name = "Контакт для проекта"
-        vrebose_name_plural = "Контакты для проектов"
+        verbose_name_plural = "Контакты для проектов"
 
 
 class Services(models.Model):
@@ -33,7 +33,7 @@ class Progect(models.Model):
 
 class Comands(models.Model):
     name = models.CharField("ФИО", max_length=50)
-    positon = models.CharField("Должеость", max_length=30)
+    positon = models.CharField("Должность", max_length=30)
     img = models.ImageField("Фотография")
 
     class Meta:
@@ -46,11 +46,17 @@ class Comands(models.Model):
 class SchoolContact(models.Model):
     name = models.CharField("Имя",max_length=30)
     phone_number = models.CharField("Номер телефона", max_length=30)
+    choices = models.CharField(
+        "Выбор", max_length=30, choices=[
+            ("Python", "Python"),
+            ("JavaScript", "JavaScript"),
+        ], default="Вопросы по курсу"
+    )
     text = models.TextField("Текст сообщения")
 
     class Meta:
         verbose_name = "Контакты для учащихся"
-        vrebose_name_plural = "Контакты для учащихся"
+        verbose_name_plural = "Контакты для учащихся"
 
 
 class Courses(models.Model):
